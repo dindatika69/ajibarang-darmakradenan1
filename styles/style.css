@@ -1,0 +1,719 @@
+:root {
+  --primary: #2f4f3e;
+  --secondary: #6fa884;
+  --light: #f4f7f5;
+  --accent: #cfe3d6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #e7f1eb 0%, #f9fbfa 40%),
+    linear-gradient(180deg, #eef4f0, #ffffff);
+  color: #2f3e2f;
+  line-height: 1.8;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background: rgba(47, 79, 62, 0.95);
+  padding: 14px 55px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(6px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand img {
+  width: 48px;
+}
+
+.brand-text span {
+  font-size: 12px;
+  color: #cfe3d6;
+  letter-spacing: 1px;
+}
+
+.brand-text h1 {
+  font-size: 20px;
+  color: white;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #e6efe9;
+  font-weight: 600;
+  position: relative;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--secondary);
+  transition: 0.3s;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.hero-slides {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(47, 79, 62, 0.88),
+    rgba(47, 79, 62, 0.65)
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ensure it takes full height to center vertically */
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  background: linear-gradient(to bottom, transparent, #f4f7f5);
+}
+
+.hero h2 {
+  font-size: 46px;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #e3f1e8;
+}
+
+/* ===== SECTION ===== */
+.section {
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section h3 {
+  font-size: 32px;
+  margin-bottom: 55px;
+  color: var(--primary);
+  position: relative;
+  text-align: center;
+}
+
+.section h3::after {
+  content: "";
+  width: 90px;
+  height: 4px;
+  background: var(--secondary);
+  display: block;
+  margin: 14px auto 0;
+  border-radius: 4px;
+}
+
+/* ===== PROFILE GRID ===== */
+.profile {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1100px;
+  width: 100%;
+  align-items: stretch;
+}
+
+.profile .card {
+  background: linear-gradient(135deg, #ffffff, #f0f6f2);
+  padding: 45px;
+  border-radius: 26px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card h4 {
+  font-size: 24px;
+  margin-bottom: 18px;
+  color: var(--primary);
+}
+
+.card p {
+  font-size: 15.5px;
+}
+
+/* ===== INFO BOX ===== */
+.info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.info div {
+  background: linear-gradient(135deg, #dfeee6, #f4fbf7);
+  padding: 18px;
+  border-radius: 16px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100px;
+}
+
+/* ===== CHART GRID ===== */
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.chart-container {
+  background: linear-gradient(135deg, #ffffff, #f0f6f2);
+  padding: 30px;
+  border-radius: 26px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+.chart-container h4 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: var(--primary);
+}
+
+/* ===== DESA INFO & KECAMATAN INFO ===== */
+.desa-info,
+.kecamatan-info {
+  max-width: 1100px;
+  width: 100%;
+  background: linear-gradient(135deg, #ffffff, #f0f6f2);
+  padding: 40px;
+  border-radius: 26px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.desa-info h4,
+.kecamatan-info h4 {
+  font-size: 24px;
+  color: var(--primary);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.desa-info p,
+.kecamatan-info p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+/* ===== MAP ===== */
+.map {
+  height: 440px;
+  width: 92%;
+  max-width: 1100px;
+  border-radius: 26px;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* Tentang Card */
+.tentang-card {
+  max-width: 1000px;
+  width: 100%;
+}
+
+.tentang-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 35px;
+  align-items: start;
+}
+
+.tentang-highlight {
+  background: linear-gradient(135deg, #e6f2eb, #f7fbf9);
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.tentang-highlight h5 {
+  margin-bottom: 18px;
+  color: #2f4f3e;
+}
+
+.tentang-highlight ul {
+  padding-left: 18px;
+  line-height: 1.9;
+}
+
+.tentang-footer {
+  margin-top: 40px;
+  padding-top: 25px;
+  border-top: 2px dashed #cfe3d6;
+  text-align: center;
+}
+
+/* ===== BERITA SECTION ===== */
+.berita-section {
+  display: none; /* Initially hidden */
+}
+
+.berita-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 15px;
+}
+
+.berita-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.berita-item h5 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.berita-item p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.berita-item span {
+  font-size: 12px;
+  color: #888;
+}
+
+.berita-selengkapnya {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: var(--secondary);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--primary);
+  color: #d7e6dc;
+  text-align: center;
+  padding: 24px;
+  font-size: 14px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 1201px) {
+  .berita-section {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    width: 20%;
+    max-width: 300px;
+    background: linear-gradient(135deg, #ffffff, #f0f6f2);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: calc(100vh - 120px); /* Limit height to viewport minus header/footer */
+  }
+
+  .section:not(.berita-section) {
+    width: 80%;
+    margin-left: auto;
+    margin-right: 20%; /* Adjust for sidebar width */
+    padding-right: 40px; /* Add some padding to the right */
+  }
+}
+
+@media (max-width: 1200px) {
+  .berita-section {
+    display: block; /* Show as a normal section */
+  }
+}
+
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 14px 30px;
+  }
+
+  .navbar ul {
+    gap: 20px;
+  }
+
+  .hero h2 {
+    font-size: 38px;
+  }
+
+  .section {
+    padding: 80px 20px;
+  }
+
+  .section h3 {
+    font-size: 28px;
+  }
+
+  .profile,
+  .chart-grid {
+    gap: 30px;
+  }
+
+  .profile .card,
+  .chart-container {
+    padding: 35px;
+  }
+
+  .desa-info,
+  .kecamatan-info {
+    padding: 30px;
+    margin-bottom: 30px;
+  }
+
+  .desa-info h4,
+  .kecamatan-info h4 {
+    font-size: 22px;
+  }
+
+  .desa-info p,
+  .kecamatan-info p {
+    font-size: 15px;
+  }
+}
+
+/* ===== RESPONSIVE MOBILE ===== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 20px;
+    flex-wrap: wrap;
+  }
+
+  .brand img {
+    width: 40px;
+  }
+
+  .brand-text h1 {
+    font-size: 16px;
+  }
+
+  .brand-text span {
+    font-size: 10px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .navbar ul {
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: rgba(47, 79, 62, 0.98);
+    margin-top: 15px;
+    border-radius: 12px;
+  }
+
+  .navbar ul.active {
+    max-height: 500px;
+    padding: 15px 0;
+  }
+
+  .navbar ul li {
+    text-align: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(207, 227, 214, 0.2);
+  }
+
+  .navbar ul li:last-child {
+    border-bottom: none;
+  }
+
+  .navbar a::after {
+    display: none;
+  }
+
+  .hero {
+    padding: 100px 20px 80px;
+  }
+
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero::after {
+    height: 60px;
+  }
+
+  .section {
+    padding: 60px 15px;
+  }
+
+  .section h3 {
+    font-size: 24px;
+    margin-bottom: 35px;
+  }
+
+  .profile,
+  .chart-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .profile .card,
+  .chart-container {
+    padding: 30px;
+  }
+
+  .card h4 {
+    font-size: 20px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+
+  .info {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .info div {
+    height: auto;
+    padding: 15px;
+    font-size: 13px;
+  }
+
+  .map {
+    height: 350px;
+    width: 100%;
+    border-radius: 18px;
+  }
+
+  .tentang-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .tentang-highlight {
+    padding: 25px;
+  }
+
+  footer {
+    font-size: 12px;
+    padding: 20px 15px;
+  }
+
+  .desa-info,
+  .kecamatan-info {
+    padding: 25px;
+    margin-bottom: 25px;
+  }
+
+  .desa-info h4,
+  .kecamatan-info h4 {
+    font-size: 20px;
+  }
+
+  .desa-info p,
+  .kecamatan-info p {
+    font-size: 14px;
+  }
+}
+
+/* ===== RESPONSIVE SMALL MOBILE ===== */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .brand {
+    gap: 10px;
+  }
+
+  .brand img {
+    width: 36px;
+  }
+
+  .brand-text h1 {
+    font-size: 14px;
+  }
+
+  .brand-text span {
+    font-size: 9px;
+  }
+
+  .hero {
+    padding: 80px 15px 60px;
+  }
+
+  .hero h2 {
+    font-size: 26px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 50px 12px;
+  }
+
+  .section h3 {
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+
+  .profile .card,
+  .chart-container {
+    padding: 25px;
+  }
+
+  .card h4 {
+    font-size: 18px;
+  }
+
+  .card p {
+    font-size: 13px;
+  }
+
+  .map {
+    height: 300px;
+    border-radius: 15px;
+  }
+
+  .tentang-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .tentang-highlight {
+    padding: 20px;
+  }
+
+  .tentang-footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 13px;
+  }
+
+  .desa-info,
+  .kecamatan-info {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .desa-info h4,
+  .kecamatan-info h4 {
+    font-size: 18px;
+  }
+
+  .desa-info p,
+  .kecamatan-info p {
+    font-size: 13px;
+  }
+}
