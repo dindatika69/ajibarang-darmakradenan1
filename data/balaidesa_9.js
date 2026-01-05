@@ -1,0 +1,1 @@
+var json_balaidesa_9 = {"type":"FeatureCollection","name":"balaidesa_9","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"id":"1","nama":"balai desa darmakradenan"},"geometry":{"type":"Point","coordinates":[109.03838502018553,-7.420089351822766]}}]}

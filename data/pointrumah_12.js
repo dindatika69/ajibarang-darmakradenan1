@@ -1,0 +1,1 @@
+var json_pointrumah_12 = {"type":"FeatureCollection","name":"pointrumah_12","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"id":"1","nama":"rumah dinda"},"geometry":{"type":"Point","coordinates":[109.032952573191935,-7.429320755337229]}}]}
