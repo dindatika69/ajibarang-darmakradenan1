@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Geoportal Kecamatan Ajibarang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="brand">
+        <img src="images/logobanyumas.png" alt="Logo Banyumas" />
+        <div class="brand-text">
+          <span>GEOPORTAL RESMI</span>
+          <h1>Kecamatan Ajibarang</h1>
+        </div>
+      </div>
+
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul id="navMenu">
+        <li><a href="#beranda">Beranda</a></li>
+        <li><a href="#desa">Peta Desa</a></li>
+        <li><a href="#kecamatan">Peta Kecamatan</a></li>
+        <li><a href="#tentang">Tentang</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-slides">
+        <div
+          class="slide active"
+          style="background-image: url('images/hero-1.png')"
+        ></div>
+        <div
+          class="slide"
+          style="background-image: url('images/hero-2.png')"
+        ></div>
+      </div>
+      <div class="hero-content">
+        <h2>Geoportal Kecamatan Ajibarang</h2>
+        <p>Informasi Spasial • Kabupaten Banyumas • Jawa Tengah</p>
+      </div>
+    </section>
+
+    <div class="main-content-wrapper">
+      <section class="berita-section section">
+        <h3><i class="fa-solid fa-newspaper"></i> Berita & Agenda</h3>
+        <div class="berita-item">
+          <h5>Pengumuman Pelayanan Libur Lebaran</h5>
+          <p>
+            Dalam rangka menyambut Hari Raya Idul Fitri, pelayanan di Kantor
+            Kecamatan Ajibarang akan diliburkan pada tanggal...
+          </p>
+          <span>28 April 2024</span>
+        </div>
+        <div class="berita-item">
+          <h5>Agenda Kerja Bakti Massal</h5>
+          <p>
+            Diharapkan partisipasi seluruh warga untuk mengikuti kegiatan kerja
+            bakti massal yang akan dilaksanakan pada hari Minggu...
+          </p>
+          <span>25 April 2024</span>
+        </div>
+        <div class="berita-item">
+          <h5>Penyaluran Bantuan Sosial Tahap II</h5>
+          <p>
+            Penyaluran bantuan sosial untuk warga kurang mampu akan kembali
+            dilaksanakan di balai desa masing-masing.
+          </p>
+          <span>22 April 2024</span>
+        </div>
+        <a href="#" class="berita-selengkapnya">Lihat Semua &rarr;</a>
+      </section>
+
+      <section id="beranda" class="section">
+        <h3>Profil Wilayah</h3>
+
+        <div class="profile">
+          <div class="card">
+            <div>
+              <h4>
+                <i class="fa-solid fa-map-location-dot"></i> Kecamatan Ajibarang
+              </h4>
+              <p>
+                Kecamatan Ajibarang merupakan salah satu kecamatan di Kabupaten
+                Banyumas yang memiliki posisi strategis sebagai penghubung
+                wilayah barat kabupaten. Wilayah ini didominasi oleh penggunaan
+                lahan pertanian, perkebunan, permukiman penduduk, serta fasilitas
+                pelayanan umum. Ajibarang berperan penting dalam aktivitas
+                ekonomi, perdagangan, dan pelayanan masyarakat, serta mengalami
+                perkembangan infrastruktur yang cukup pesat dalam beberapa tahun
+                terakhir.
+              </p>
+            </div>
+            <div class="info">
+              <div>66,50 km²<br />Luas Wilayah</div>
+              <div>±163 mdpl<br />Ketinggian</div>
+              <div>15 Desa<br />Administratif</div>
+              <div>Pusat Kecamatan: Ajibarang Wetan dan Ajibarang Kulon</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div>
+              <h4><i class="fa-solid fa-house-flag"></i> Desa Darmakradenan</h4>
+              <p>
+                Desa Darmakradenan merupakan salah satu desa di Kecamatan
+                Ajibarang yang terletak di wilayah perbukitan dengan kondisi
+                geografis yang mendukung sektor pertanian dan perkebunan.
+                Mayoritas penduduk bermata pencarian sebagai petani dan pekebun,
+                dengan kehidupan sosial masyarakat yang masih kuat, serta budaya
+                gotong royong yang tetap terjaga hingga saat ini.
+              </p>
+            </div>
+            <div class="info">
+              <div>1.184 ha<br />Luas Desa</div>
+              <div>±9.382 Jiwa<br />Penduduk</div>
+              <div>10 RW<br />Wilayah</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="demografi" class="section">
+        <h3>Data Demografi</h3>
+        <p style="max-width: 1100px; text-align: center; margin-bottom: 40px; font-size: 16px;">
+          Data demografi Kecamatan Ajibarang menyajikan informasi penting mengenai struktur penduduk,
+          yang meliputi distribusi usia dan jenis kelamin. Informasi ini krusial untuk perencanaan
+          pembangunan wilayah, alokasi sumber daya, serta pemahaman dinamika sosial masyarakat.
+          Berikut adalah visualisasi data demografi terbaru.
+        </p>
+        <div class="chart-grid">
+          <div class="chart-container">
+            <h4>Penduduk Berdasarkan Usia</h4>
+            <canvas id="ageChart"></canvas>
+          </div>
+          <div class="chart-container">
+            <h4>Penduduk Berdasarkan Jenis Kelamin</h4>
+            <canvas id="genderChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section id="desa" class="section">
+        <h3>Peta Desa Darmakradenan</h3>
+        <div class="desa-info">
+          <h4>Informasi Umum Desa Darmakradenan</h4>
+          <p>
+            Desa Darmakradenan adalah salah satu desa yang terletak di Kecamatan
+            Ajibarang, Kabupaten Banyumas. Desa ini dikenal dengan keindahan
+            alamnya yang masih asri, didominasi oleh area pertanian dan
+            perkebunan yang subur. Masyarakatnya menjunjung tinggi nilai-nilai
+            tradisional dan gotong royong, menciptakan suasana pedesaan yang
+            harmonis dan damai. Potensi utama desa ini terletak pada sektor
+            pertanian, perkebunan, serta kerajinan lokal yang menjadi mata
+            pencarian sebagian besar penduduknya.
+          </p>
+          <p>
+            Dengan luas wilayah sekitar 1.184 hektar dan jumlah penduduk
+            ±9.382 jiwa, Desa Darmakradenan terus berupaya mengembangkan diri
+            melalui berbagai program pembangunan yang berfokus pada peningkatan
+            kesejahteraan masyarakat dan pelestarian lingkungan.
+          </p>
+        </div>
+        <iframe src="peta desa\desa/peta desa.html" class="map"></iframe>
+      </section>
+
+      <section id="kecamatan" class="section">
+        <h3>Peta Kecamatan Ajibarang</h3>
+        <div class="kecamatan-info">
+          <h4>Informasi Umum Kecamatan Ajibarang</h4>
+          <p>
+            Kecamatan Ajibarang adalah sebuah kecamatan di Kabupaten Banyumas,
+            Jawa Tengah. Terletak di bagian barat kabupaten, Ajibarang menjadi
+            jalur perlintasan utama yang menghubungkan Purwokerto dengan
+            kota-kota di wilayah barat, seperti Tegal, Brebes, dan Cirebon.
+            Posisi strategis ini menjadikan Ajibarang sebagai pusat ekonomi dan
+            perdagangan yang ramai, ditandai dengan adanya pasar induk dan
+            berbagai pusat perbelanjaan.
+          </p>
+          <p>
+            Secara geografis, wilayah Ajibarang bervariasi dari dataran rendah
+            hingga perbukitan, dengan sebagian besar lahan dimanfaatkan untuk
+            pertanian, perkebunan, dan permukiman. Kecamatan ini terdiri dari 15
+            desa yang masing-masing memiliki potensi unik, mulai dari hasil bumi
+            seperti padi, kelapa, dan buah-buahan, hingga kerajinan tangan dan
+            industri kecil.
+          </p>
+        </div>
+        <iframe src="peta kecamatan.html" class="map"></iframe>
+      </section>
+
+      <section id="tentang" class="section">
+        <div class="card tentang-card">
+          <h4 style="text-align: center; margin-bottom: 30px">
+            <i class="fa-solid fa-circle-info"></i> Tentang Geoportal
+          </h4>
+
+          <div class="tentang-grid">
+            <div>
+              <p>
+                Geoportal Kecamatan Ajibarang merupakan platform informasi
+                spasial berbasis web yang menyajikan data geografis wilayah
+                secara visual, terstruktur, dan interaktif.
+              </p>
+
+              <p>
+                Geoportal ini dirancang sebagai media pendukung keterbukaan
+                informasi publik serta sarana edukasi mengenai kondisi wilayah
+                Kecamatan Ajibarang dan Desa Darmakradenan, meliputi aspek
+                administratif, geografis, dan potensi wilayah.
+              </p>
+
+              <p>
+                Dengan adanya peta digital dan informasi pendukung, geoportal
+                ini diharapkan mampu membantu proses perencanaan pembangunan
+                serta pengambilan keputusan berbasis data.
+              </p>
+            </div>
+
+            <div class="tentang-highlight">
+              <h5><i class="fa-solid fa-star"></i> Tujuan Pengembangan</h5>
+
+              <ul>
+                <li>Menyajikan informasi wilayah secara visual</li>
+                <li>Mendukung transparansi data publik</li>
+                <li>Membantu perencanaan pembangunan</li>
+                <li>Sebagai media edukasi berbasis peta</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tentang-footer">
+            <b>Pengembang</b><br />
+            Dinda Pangestika<br />
+            <span style="font-size: 14px">
+              Sistem Informasi – Universitas Amikom Purwokerto
+            </span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>© 2025 Geoportal Kecamatan Ajibarang • Kabupaten Banyumas</footer>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("navMenu");
+        menu.classList.toggle("active");
+      }
+
+      // Close menu when clicking on a link (for mobile)
+      document.querySelectorAll(".navbar a").forEach((link) => {
+        link.addEventListener("click", () => {
+          const menu = document.getElementById("navMenu");
+          if (menu.classList.contains("active")) {
+            menu.classList.remove("active");
+          }
+        });
+      });
+
+      // Hero Carousel
+      const slides = document.querySelectorAll(".slide");
+      let currentSlide = 0;
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.remove("active");
+          if (i === index) {
+            slide.classList.add("active");
+          }
+        });
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+      }
+
+      setInterval(nextSlide, 5000); // Change slide every 5 seconds
+
+      // Charts
+      const ageCtx = document.getElementById("ageChart").getContext("2d");
+      new Chart(ageCtx, {
+        type: "bar",
+        data: {
+          labels: ["0-14", "15-29", "30-44", "45-59", "60+"],
+          datasets: [
+            {
+              label: "Jumlah Penduduk",
+              data: [18584, 33452, 28248, 16354, 11151],
+              backgroundColor: "#6fa884",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+        },
+      });
+
+      const genderCtx = document.getElementById("genderChart").getContext("2d");
+      new Chart(genderCtx, {
+        type: "doughnut",
+        data: {
+          labels: ["Laki-laki", "Perempuan"],
+          datasets: [
+            {
+              label: "Jumlah Penduduk",
+              data: [54606, 53184],
+              backgroundColor: ["#2f4f3e", "#6fa884"],
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+        },
+      });
+
+      // Berita Section/Sidebar visibility
+      window.addEventListener("scroll", function () {
+        const beritaSection = document.querySelector(".berita-section");
+        const heroSection = document.querySelector(".hero");
+        if (window.scrollY > heroSection.offsetHeight) {
+          beritaSection.style.display = "block";
+        } else {
+          beritaSection.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
